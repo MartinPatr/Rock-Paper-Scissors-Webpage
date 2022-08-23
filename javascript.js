@@ -15,9 +15,9 @@ function getComputerChoice() {
     return ComputerChoice;
 
 }
-
+//Add a variable to count the amount of rounds played
 let i = 0;
-
+//Add variables to track individual score of both the computer and the player
 let playerScore = 0;
 let computerScore = 0;
 
