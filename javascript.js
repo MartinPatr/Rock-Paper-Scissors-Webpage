@@ -16,49 +16,51 @@ function getComputerChoice() {
 
 }
 
-
-let ComputerChoice = getComputerChoice();
-
-//Function that will display what happens if you tie
-function playerTie() {
-    console.log("It was a tie you both chose, "  + ComputerChoice);
-    getComputerChoice();
-}
-//Function that will display what happens if you lose
-function playerLose() {
-    console.log("You have lost, the computer chose " + ComputerChoice);
-    getComputerChoice();
-}
-//Function that will display what happens if you win
-function playerWin() {
-    console.log("You have won, the computer chose " + ComputerChoice)
-    getComputerChoice();
-}
-
-
-
 //Function that will review both inputs and determine a winner
 function playRound(playerSelection) {
+    //Function that will take the string and capitalize the first letter
+    function capitalize(playerSelection) {
+        let fix_string = playerSelection.toLowerCase()
+        return fix_string.charAt(0).toUpperCase() + fix_string.slice(1);
+    }
+    
+    let playerSelection_fix = capitalize(playerSelection);
     let ComputerChoice = getComputerChoice();
-    if (playerSelection == ComputerChoice) {
+    
+    
+    
+    //Function that will display what happens if you tie
+    function playerTie() {
+        console.log("It was a tie, the computer chose " + ComputerChoice);
+    }
+    //Function that will display what happens if you lose
+    function playerLose() {
+        console.log("You have lost, the computer chose " + ComputerChoice);
+    }
+    //Function that will display what happens if you win
+    function playerWin() {
+        console.log("You have won, the computer chose " + ComputerChoice)
+    }
+    
+    if (playerSelection_fix == ComputerChoice) {
         playerTie();
     }
-        else if (playerSelection == "Rock" && ComputerChoice == "Paper") {
+        else if (playerSelection_fix == "Rock" && ComputerChoice == "Paper") {
             playerLose();
         }
-        else if (playerSelection == "Scissors" && ComputerChoice == "Paper") { 
+        else if (playerSelection_fix == "Scissors" && ComputerChoice == "Paper") { 
             playerWin();
         }
-        else if (playerSelection == "Rock" && ComputerChoice == "Scissors") {
+        else if (playerSelection_fix == "Rock" && ComputerChoice == "Scissors") {
             playerWin();
         }
-        else if (playerSelection == "Paper" && ComputerChoice == "Scissors") {
+        else if (playerSelection_fix == "Paper" && ComputerChoice == "Scissors") {
             playerLose();
         }
-        else if (playerSelection == "Scissors" && ComputerChoice == "Rock") {
+        else if (playerSelection_fix == "Scissors" && ComputerChoice == "Rock") {
             playerLose();
         }
-        else if (playerSelection == "Paper" && ComputerChoice == "Rock") {
+        else if (playerSelection_fix == "Paper" && ComputerChoice == "Rock") {
             playerWin();
         }
 }       
